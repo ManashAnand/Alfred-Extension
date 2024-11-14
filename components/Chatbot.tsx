@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Send } from 'lucide-react'
+import { getChatbotResponseFromCloudflare } from '~helper/chatHelper'
 
 type Message = {
   id: number
@@ -9,7 +10,7 @@ type Message = {
   sender: 'user' | 'bot'
 }
 
-export default function ChatbotInterface() {
+export default function ChatbotInterface({user}) {
   const [messages, setMessages] = useState<Message[]>([
     { id: 1, text: "Hello Sir! How can I assist you today?", sender: 'bot' }
   ])
@@ -22,7 +23,7 @@ export default function ChatbotInterface() {
 
   useEffect(scrollToBottom, [messages])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (input.trim() === '') return
 
@@ -35,15 +36,16 @@ export default function ChatbotInterface() {
     setMessages(prevMessages => [...prevMessages, userMessage])
     setInput('')
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botMessage: Message = {
-        id: messages.length + 2,
-        text: `I received your message: "${input}". How can I help further?`,
-        sender: 'bot'
-      }
-      setMessages(prevMessages => [...prevMessages, botMessage])
-    }, 1000)
+    try {
+     const response = await getChatbotResponseFromCloudflare(user.id,input)
+     console.log("from here")
+     console.log(response)
+    //  const { data } =
+      setMessages(prev => [...prev, {  id: prev.length + 1, text: response, sender: 'bot' }]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setMessages(prev => [...prev, {  id: prev.length + 1, text: "Maybe your cloudflare credentials are not correct or our server is busy or might be you ask too much question too soon, Would you like to buy a Premium model ?", sender: 'bot' }]);
+    }
   }
 
   return (

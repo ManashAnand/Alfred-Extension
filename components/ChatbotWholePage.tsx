@@ -12,7 +12,7 @@ const ChatbotWholePage = ({user,setUser}) => {
                 <span className="text-2xl underline decoration-wavy decoration-orange-600 cursor-pointer ml-2" >Alfred.ai</span>
                         <Profile user={user} setUser={setUser}/>
                 </div>
-                <ChatbotInterface/>
+                <ChatbotInterface user={user} />
             </div>
         </>
     )
