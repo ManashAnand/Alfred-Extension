@@ -6,6 +6,7 @@ import { useStorage } from "@plasmohq/storage/hook"
 
 import { supabase } from "~core/supabase"
 
+import "./style.css"
 
 function IndexPopup() {
   const [user, setUser] = useStorage<User>({
@@ -79,6 +80,7 @@ function IndexPopup() {
 
   return (
     <main
+    className="bg-blue-500"
     style={{
       display: "flex",
       justifyContent: "center",
