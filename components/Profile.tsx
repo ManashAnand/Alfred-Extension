@@ -39,7 +39,7 @@ const Profile = ({user,setUser}) => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="absolute right-0 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <button
               className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
@@ -55,16 +55,17 @@ const Profile = ({user,setUser}) => {
               <Settings className="mr-3 h-5 w-5 text-gray-400" />
               Settings
             </button>
-            <button
+            <a
+              href='https://alfred-tau.vercel.app/'
+              target='_blank'
               className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
               <HelpCircle className="mr-3 h-5 w-5 text-gray-400" />
-              Help
-            </button>
+              Website
+            </a>
             <button
               onClick={() => {
-                // Add logout logic here
                 supabase.auth.signOut()
                 setUser(null)
                 console.log('Logging out...')

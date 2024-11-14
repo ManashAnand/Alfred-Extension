@@ -38,9 +38,7 @@ export default function ChatbotInterface({user}) {
 
     try {
      const response = await getChatbotResponseFromCloudflare(user.id,input)
-     console.log("from here")
-     console.log(response)
-    //  const { data } =
+    //  console.log(response)
       setMessages(prev => [...prev, {  id: prev.length + 1, text: response, sender: 'bot' }]);
     } catch (error) {
       console.error('Error sending message:', error);

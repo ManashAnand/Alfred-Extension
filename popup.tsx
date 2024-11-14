@@ -7,7 +7,6 @@ import { useStorage } from "@plasmohq/storage/hook"
 import { supabase } from "~core/supabase"
 
 import "./style.css"
-import Profile from "~components/Profile"
 import ChatbotWholePage from "~components/ChatbotWholePage"
 
 function IndexPopup() {
