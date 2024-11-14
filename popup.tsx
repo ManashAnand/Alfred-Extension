@@ -7,6 +7,8 @@ import { useStorage } from "@plasmohq/storage/hook"
 import { supabase } from "~core/supabase"
 
 import "./style.css"
+import Profile from "~components/Profile"
+import ChatbotWholePage from "~components/ChatbotWholePage"
 
 function IndexPopup() {
   const [user, setUser] = useStorage<User>({
@@ -76,21 +78,23 @@ function IndexPopup() {
   }
 
 
-
   return (
     <>
       {user && (
         <>
-          <h3>
-            {user.email} - {user.id}
-          </h3>
-          <button
-            onClick={() => {
-              supabase.auth.signOut()
-              setUser(null)
-            }}>
-            Logout
-          </button>
+        <div className="container p-6">
+          <ChatbotWholePage user={user} setUser={setUser}/>
+            <h3>
+              {user.email} - {user.id}
+            </h3>
+            <button
+              onClick={() => {
+                supabase.auth.signOut()
+                setUser(null)
+              }}>
+              Logout
+            </button>
+        </div>
         </>
       )}
 
