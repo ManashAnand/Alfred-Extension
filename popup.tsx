@@ -82,9 +82,9 @@ function IndexPopup() {
     <>
       {user && (
         <>
-        <div className="container p-6">
+        <div className="container p-2">
           <ChatbotWholePage user={user} setUser={setUser}/>
-            <h3>
+            {/* <h3>
               {user.email} - {user.id}
             </h3>
             <button
@@ -93,7 +93,7 @@ function IndexPopup() {
                 setUser(null)
               }}>
               Logout
-            </button>
+            </button> */}
         </div>
         </>
       )}
