@@ -1,6 +1,16 @@
 # Alfred Chrome Extension
 
-**Alfred Chrome Extension** is a lightweight, personalized chatbot extension for Chrome, built using the [Plasmo Framework](https://www.plasmo.com/) and powered by **Cloudflare Workers**. This project aims to provide an efficient and scalable solution for integrating user-specific chatbot functionalities directly into the browser.
+**Alfred Chrome Extension** is a lightweight, personalized chatbot extension for Chrome, built using the [Plasmo Framework](https://www.plasmo.com/) and powered by **Cloudflare AI**. This project aims to provide an efficient and scalable solution for integrating user-specific chatbot functionalities directly into the browser.
+
+
+## Working Video
+
+Check out the working demo of the Alfred-Extension on Twitter:  
+[![Watch the video](https://github.com/user-attachments/assets/a8efbb84-f9ed-402e-988a-243875557f6d)](https://x.com/manashanand2/status/1857472717060194719)
+
+[View the video here](https://x.com/manashanand2/status/1857472717060194719)
+
+
 
 ---
 
@@ -82,15 +92,24 @@ This starts a local development server and watches for file changes.
 
 ```plaintext
 Alfred-Extension/
-├── src/
-│   ├── background/         # Background scripts
-│   ├── content/            # Content scripts
-│   ├── popup/              # Popup UI for the chatbot
-│   └── workers/            # Cloudflare Worker integrations
-├── public/                 # Static assets
-├── package.json            # Project dependencies
-├── plasmo.config.ts        # Plasmo framework configuration
-└── wrangler.toml           # Cloudflare Workers configuration
+├── .github/workflows/      # GitHub Actions workflows
+├── assets/                 # Assets like icons or images
+├── background/             # Background scripts for extension
+├── components/             # React components for the extension
+├── core/                   # Core logic and utilities
+├── helper/                 # Helper functions and utilities
+├── .gitignore              # Git ignore file
+├── .prettierrc.mjs         # Prettier configuration file
+├── README.md               # Documentation for the project
+├── example.env             # Example environment variables file
+├── package.json            # Project dependencies and scripts
+├── pnpm-lock.yaml          # Lockfile for pnpm dependencies
+├── popup.tsx               # Popup UI for the chatbot
+├── postcss.config.js       # PostCSS configuration file
+├── style.css               # Global CSS styles
+├── tailwind.config.js      # Tailwind CSS configuration
+└── tsconfig.json           # TypeScript configuration
+
 ```
 
 ---
